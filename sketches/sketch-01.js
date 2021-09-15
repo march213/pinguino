@@ -1,34 +1,41 @@
 const canvasSketch = require("canvas-sketch");
 
 const settings = {
-  dimensions: [600, 600],
+  dimensions: [1080, 1080],
 };
 
 const sketch = () => {
-  return ({ context: ctx, width: windowWidth, height: windowHeight }) => {
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, windowWidth, windowHeight);
+  return ({ context: ctx, width, height }) => {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, width, height);
 
-    ctx.lineWidth = 3;
+    ctx.lineWidth = width * 0.01;
+    ctx.strokeStyle = "#fff";
 
-    const width = 60;
-    const height = 60;
-    const gap = 40;
+    const w = width * 0.1;
+    const h = height * 0.1;
+    const gap = width * 0.03;
+    const ix = width * 0.17;
+    const iy = height * 0.17;
+
+    const off = width * 0.08;
+
     let x, y;
 
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 5; j++) {
-        x = 75 + (width + gap) * i;
-        y = 75 + (height + gap) * j;
+        x = ix + (w + gap) * i;
+        y = iy + (h + gap) * j;
 
         ctx.beginPath();
-        ctx.rect(x, y, width, height);
+        ctx.rect(x, y, w, h);
+
         ctx.stroke();
         ctx.closePath();
 
         if (Math.random() > 0.5) {
           ctx.beginPath();
-          ctx.rect(x + 8, y + 8, width - 16, height - 16);
+          ctx.rect(x + off, y + off, w - off * 2, h - off * 2);
           ctx.stroke();
           ctx.closePath();
         }
