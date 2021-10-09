@@ -18,7 +18,7 @@ const sketch = ({ context, width, height }) => {
   }
 
   return ({ context, width, height }) => {
-    context.fillStyle = "#429931";
+    context.fillStyle = "white";
     context.strokeStyle = "#222222";
 
     context.fillRect(0, 0, width, height);
