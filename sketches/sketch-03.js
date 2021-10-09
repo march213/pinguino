@@ -23,7 +23,7 @@ const sketch = ({ context, width, height }) => {
     for (let i = 0; i < agents.length; i += 1) {
       const agent = agents[i];
 
-      for (let j = 0; j < agents.length; j += 1) {
+      for (let j = i + 1; j < agents.length; j += 1) {
         const other = agents[j];
 
         context.beginPath();
