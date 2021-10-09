@@ -10,7 +10,7 @@ const settings = {
 const sketch = ({ context, width, height }) => {
   const agents = [];
 
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 40; i += 1) {
     const x = random.range(0, width);
     const y = random.range(0, height);
 
@@ -18,7 +18,9 @@ const sketch = ({ context, width, height }) => {
   }
 
   return ({ context, width, height }) => {
-    context.fillStyle = "white";
+    context.fillStyle = "#429931";
+    context.strokeStyle = "#222222";
+
     context.fillRect(0, 0, width, height);
 
     for (let i = 0; i < agents.length; i += 1) {
